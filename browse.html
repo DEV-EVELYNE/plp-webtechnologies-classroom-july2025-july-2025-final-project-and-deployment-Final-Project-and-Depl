@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Browse - ScholarHub</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo"><a href="index.html"><i class="fas fa-graduation-cap"></i> ScholarHub</a></div>
+      <div class="nav-menu" id="nav-menu">
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link active" href="browse.html">Browse</a>
+        <a class="nav-link" href="submit.html">Submit</a>
+        <a class="nav-link" href="review.html">Review</a>
+        <a class="nav-link" href="about.html">About</a>
+        <a class="nav-link" href="contact.html">Contact</a>
+        <div class="nav-auth">
+          <a href="#" class="nav-link" id="loginBtn">Login</a>
+          <a href="#" class="nav-link" id="registerBtn">Register</a>
+          <div class="user-menu" id="userMenu" style="display:none;">
+            <span id="userName"></span>
+            <a href="#" id="logoutBtn">Logout</a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-toggle" id="nav-toggle"><span class="bar"></span><span class="bar"></span><span class="bar"></span></div>
+    </div>
+  </nav>
+
+  <header class="page-header">
+    <div class="container"><h1>Browse Articles</h1>
+      <div class="filters">
+        <input id="searchInput" class="search" placeholder="Search by title, abstract, author, tags" />
+        <select id="categoryFilter">
+          <option value="">All Categories</option>
+          <option>Computer Science</option>
+          <option>Biology</option>
+          <option>Physics</option>
+          <option>Mathematics</option>
+          <option>Psychology</option>
+        </select>
+        <select id="yearFilter">
+          <option value="">Any Year</option>
+          <option>2025</option>
+          <option>2024</option>
+          <option>2023</option>
+          <option>2022</option>
+        </select>
+        <button class="btn btn-secondary" id="clearFilters">Clear</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="padding:1rem 0 2rem;">
+    <section class="articles-grid" id="browseList"></section>
+  </main>
+
+  <!-- Auth Modals reused -->
+  <div class="modal" id="loginModal"><div class="modal-content"><span class="close" id="closeLogin">&times;</span>
+    <h2>Login to ScholarHub</h2>
+    <form id="loginForm">
+      <div class="form-group"><label for="loginEmail">Email</label><input type="email" id="loginEmail" required></div>
+      <div class="form-group"><label for="loginPassword">Password</label><input type="password" id="loginPassword" required></div>
+      <button class="btn btn-primary" type="submit">Login</button>
+      <p class="form-switch">Don't have an account? <a href="#" id="switchToRegister">Register here</a></p>
+    </form></div></div>
+  <div class="modal" id="registerModal"><div class="modal-content"><span class="close" id="closeRegister">&times;</span>
+    <h2>Join ScholarHub</h2>
+    <form id="registerForm">
+      <div class="form-group"><label for="registerName">Full Name</label><input type="text" id="registerName" required></div>
+      <div class="form-group"><label for="registerEmail">Email</label><input type="email" id="registerEmail" required></div>
+      <div class="form-group"><label for="registerAffiliation">Institution/Affiliation</label><input type="text" id="registerAffiliation" required></div>
+      <div class="form-group"><label for="registerRole">Role</label>
+        <select id="registerRole"><option value="author">Author</option><option value="reviewer">Reviewer</option></select>
+      </div>
+      <div class="form-group"><label for="registerPassword">Password</label><input type="password" id="registerPassword" required></div>
+      <div class="form-group"><label for="confirmPassword">Confirm Password</label><input type="password" id="confirmPassword" required></div>
+      <button class="btn btn-primary" type="submit">Register</button>
+      <p class="form-switch">Already have an account? <a href="#" id="switchToLogin">Login here</a></p>
+    </form></div></div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section"><h3>ScholarHub</h3><p>Advancing academic research through innovative publishing solutions.</p></div>
+        <div class="footer-section"><h4>Quick Links</h4><ul>
+          <li><a href="browse.html">Browse Articles</a></li>
+          <li><a href="submit.html">Submit Research</a></li>
+          <li><a href="review.html">Become a Reviewer</a></li>
+          <li><a href="about.html">About Us</a></li>
+        </ul></div>
+        <div class="footer-section"><h4>Support</h4><ul>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="#">Help Center</a></li>
+          <li><a href="#">Guidelines</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul></div>
+        <div class="footer-section"><h4>Newsletter</h4>
+          <form id="newsletterForm"><input type="email" placeholder="Enter your email" required><button type="submit"><i class="fas fa-paper-plane"></i></button></form>
+        </div>
+      </div>
+      <div class="footer-bottom"><p>&copy; 2024 ScholarHub. All rights reserved.</p></div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function(){
+      const si = document.getElementById('searchInput');
+      const cf = document.getElementById('categoryFilter');
+      const yf = document.getElementById('yearFilter');
+      const clear = document.getElementById('clearFilters');
+      [si,cf,yf].forEach(el=> el && el.addEventListener('input', ()=> window.applyBrowse && window.applyBrowse()));
+      clear && clear.addEventListener('click', ()=>{ si.value=''; cf.value=''; yf.value=''; window.applyBrowse && window.applyBrowse();});
+    });
+  </script>
+</body>
+</html>
