@@ -1,4 +1,4 @@
-# Submission Summary
+# SCHOLARHUB WEBSITE.
 This submission demonstrates a focused front-end prototype for an academic journal platform. My goal was to present the core user journeys with clean, consistent UI and evaluator-friendly structure so you can open it and immediately understand what works, how to run it, and how it could evolve.
 
 What I prioritized:
@@ -28,10 +28,10 @@ What you can expect to see:
 
 ## Live Demo
 The project is deployed on Vercel and available here:
-- https://plp-webtechnologies-classroom-july2-orcin-one.vercel.app/
+https://plp-webtechnologies-classroom-july2-orcin-one.vercel.app
 
-
-
+## presentation
+https://gamma.app/docs/ScholarHub-pb1s0dc2tms1yab?mode=doc
 ## Project Structure
 ```
 Journalhub/
