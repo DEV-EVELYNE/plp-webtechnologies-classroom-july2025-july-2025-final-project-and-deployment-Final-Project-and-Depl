@@ -26,6 +26,12 @@ What you can expect to see:
 - Common UI elements (navigation, footer, and modals) appear across pages to simulate a real product feel.
 - File and section names are descriptive so it’s easy to find and extend specific areas.
 
+## Live Demo
+The project is deployed on Vercel and available here:
+- https://plp-webtechnologies-classroom-july2-orcin-one.vercel.app/
+
+
+
 ## Project Structure
 ```
 Journalhub/
